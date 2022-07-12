@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="font-family: cursive;font-size: 25px;color:rgb(94, 2, 40);text-align: center;">
+        Add Products..
+    </h1><br><br>
+    
+    <div class="container ">
+    <form class="a"method="post" action="{% url 'add_product_details' %}">
+    
+        {% csrf_token %}
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> Name:</label><br>
+        <div class="col-lm-2"><input type="text" name="product_name"></div>
+    </div>
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description:</label><br>
+        <div class="col-lm-2"><textarea rows="3" cols="15" name="description"></textarea></div>
+    </div>
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label"> Quantity:</label><br>
+        <div class="col-lm-2"><input type="number" name="quantity"></div>
+    </div>
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Price:</label><br>
+        <div class="col-lm-2"><input type="number" name="price"></div>
+    </div>
+
+       <button type="submit"class="btn btn-warning ">save Product</button>
+        
+    </form>
+    </div>
+    
+    {% endblock %}

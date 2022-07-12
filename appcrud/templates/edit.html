@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="font-family: cursive;font-size: 25px;color:rgb(94, 2, 40);text-align: center;">
+       Edit Products....
+    </h1>
+    
+    <form class="a" method="post" action="/edit_product_details/{{ products.id }}">
+        {% csrf_token %}
+
+      
+        
+        <div class="form-group row"><label class="col-sm-2 col-form-label">Product Name:</label>
+            <div class="col-lm-2"><input type="text" name="product_name" value="{{ products.product_name }}"></div></div>
+        <div class="form-group row"><label class="col-sm-2 col-form-label"> Product Description:</label>
+            <div class="col-lm-2"><input type="text" name="description" value="{{ products.description }}"></div></div>
+        <div class="form-group row"><label class="col-sm-2 col-form-label"> Product Quantity:</label>
+            <div class="col-lm-2"><input type="number" name="quantity" value="{{ products.quantity }}"></div></div>
+        <div class="form-group row"><label class="col-sm-2 col-form-label"> Product Price:</label>
+            <div class="col-lm-2"><input type="number" name="price" value="{{ products.price }}"></div></div>
+        
+        <button type="submit" class="btn btn-success">Update</button>
+        
+        <input class="btn btn-danger"type=button value="Previous Page" onClick="javascript:history.go(-1);">
+    </form>
+
+    {% endblock %}

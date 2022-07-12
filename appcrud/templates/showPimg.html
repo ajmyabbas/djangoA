@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="font-family: cursive;font-size: 25px;color:rgb(94, 2, 40);text-align: center;">Show Product Deatils..</h1>
+    <center><table class="table table-striped table-secondary table-sm"border="2px">
+        <thead class="bg-warning">
+            <tr>
+                <th>PRODUCT ID</th>
+                <th>PRODUCT NAME</th>
+                <th>PRODUCT DESCRIPTION</th>
+                <th>PRODUCT QUANTITY</th>
+                <th>PRODUCT PRICE</th>
+                <th>ACTION..</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in product %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.product_name }}</td>
+                <td>{{ p.description }}</td>
+                <td>{{ p.quantity }}</td>
+                <td>{{ p.price }}</td>
+                <td><a class="text-info"href="{% url 'editpage' p.id  %}">Edit</a>
+                    <br>
+                    <a class="text-danger"href="{% url 'deletepage' p.id  %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}                    
+        </tbody>
+    </table></center>
+    {% endblock %}
