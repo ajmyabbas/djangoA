@@ -56,3 +56,6 @@ def delete_product(request,pk):
     products=ProdectDetails.objects.get(id=pk)
     products.delete()
     return redirect('show_products')
+
+def load_userHome(request):
+    return render(request,'userHome.html')
